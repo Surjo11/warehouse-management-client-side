@@ -1,0 +1,10 @@
+.banner img {
+  height: 100vh;
+  width: 100%;
+}
+
+.banner-text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
