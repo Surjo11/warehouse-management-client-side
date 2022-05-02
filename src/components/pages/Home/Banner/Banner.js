@@ -4,7 +4,7 @@ import "./Banner.css";
 import { Zoom } from "react-reveal";
 const Banner = () => {
   return (
-    <div className="relative banner mb-10">
+    <div className="relative banner">
       <Zoom top cascade>
         <h1 className=" banner-tittle text-2xl lg:text-8xl text-white absolute inset-0 ">
           Welcome to our Warehouse
