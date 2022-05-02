@@ -1,13 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import icon from "./icon.png"
 const Header = () => {
   return (
     <div>
       <nav className="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-800">
         <div className="container flex flex-wrap justify-between items-center mx-auto">
           <a href="https://flowbite.com" className="flex items-center">
-            <span className="self-center text-xl lg:text-3xl font-semibold whitespace-nowrap dark:text-white">
+            <img className="w-10 mr-2" src={icon} alt="icon" />
+            <span className="self-center text-xl lg:text-2xl font-semibold whitespace-nowrap dark:text-white">
               ElSol Warehouse
             </span>
           </a>
