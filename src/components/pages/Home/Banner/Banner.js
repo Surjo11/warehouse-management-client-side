@@ -6,7 +6,7 @@ const Banner = () => {
   return (
     <div className="relative banner mb-10">
       <Zoom top cascade>
-        <h1 className=" banner-tittle text-8xl text-white absolute inset-0 ">
+        <h1 className=" banner-tittle text-2xl lg:text-8xl text-white absolute inset-0 ">
           Welcome to our Warehouse
         </h1>
       </Zoom>

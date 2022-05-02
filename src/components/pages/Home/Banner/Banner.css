@@ -3,8 +3,15 @@
   width: 100%;
 }
 
-.banner-tittle{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.banner-tittle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 480px) {
+  .banner img {
+    height: 100%;
+    width: 100%;
+  }
 }
