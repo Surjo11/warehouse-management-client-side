@@ -1,0 +1,16 @@
+.or-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.line-one {
+  border: 1px solid lightslategray;
+  width: 200px;
+  height: 0;
+}
+
+.line-two {
+  border: 1px solid lightslategray;
+  width: 200px;
+  height: 0;
+}
