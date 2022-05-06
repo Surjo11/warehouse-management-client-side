@@ -57,7 +57,7 @@ const SignIn = () => {
     signInWithEmailAndPassword(email, password);
   };
 
-  const resetPassword = async () => {
+  const forgotPassword = async () => {
     const email = emailField.current.value;
     await sendPasswordResetEmail(email);
     toast.success("Check Your Email");
@@ -108,7 +108,7 @@ const SignIn = () => {
           </div>
           <div className="ml-3 text-sm">
             <button
-              onClick={resetPassword}
+              onClick={forgotPassword}
               className="ml-auto text-xs text-blue-700 hover:underline dark:text-blue-500"
             >
               Forgot Password?
