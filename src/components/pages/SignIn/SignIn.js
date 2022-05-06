@@ -8,6 +8,7 @@ import auth from "../../../firebase.init";
 import { useSendPasswordResetEmail } from "react-firebase-hooks/auth";
 import toast, { Toaster } from "react-hot-toast";
 import "./SignIn.css";
+import Loading from "../../shared/Loading/Loading";
 
 const SignIn = () => {
   const emailField = useRef("");
@@ -23,19 +24,6 @@ const SignIn = () => {
 
   const [signInWithGithub, userOfGit] = useSignInWithGithub(auth);
 
-  useEffect(() => {
-    let errorElement;
-    if (error) {
-      errorElement = <p className="text-red-600">Error: {error?.message}</p>;
-      toast.error(errorElement);
-    }
-  });
-  // Loading Screen
-  useEffect(() => {
-    if (loading) {
-      return <p>Loading...</p>;
-    }
-  });
   // SignIn with EmailPass
   useEffect(() => {
     if (EmailPass) {
@@ -68,8 +56,22 @@ const SignIn = () => {
     signInWithGithub();
   };
 
+  //  error
+  let errorElement;
+  if (error) {
+    errorElement = <p>Error: {error?.message}</p>;
+    toast.error(errorElement);
+  }
+
+  // Loading Screen
+  if (loading) {
+    if (loading) {
+      return <Loading></Loading>;
+    }
+  }
+
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center m-12">
       <div className="p-4 w-96 bg-white rounded-lg border border-gray-200 shadow-md sm:p-6 lg:p-8 dark:bg-gray-800 dark:border-gray-700">
         <form className="space-y-6" action="#" onSubmit={handelSignIn}>
           <div>

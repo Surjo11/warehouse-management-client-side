@@ -23,7 +23,7 @@ const SignUp = () => {
     createUserWithEmailAndPassword(email, password);
   };
   return (
-    <div className="flex justify-center m-2">
+    <div className="flex justify-center m-10">
       <div className="p-4 w-96 bg-white rounded-lg border border-gray-200 shadow-md sm:p-6 lg:p-8 dark:bg-gray-800 dark:border-gray-700">
         <form className="space-y-6" action="#" onSubmit={handelRegister}>
           <h5 className="text-xl font-medium text-center text-gray-900 dark:text-white">
@@ -75,7 +75,7 @@ const SignUp = () => {
               to="/signin"
               className="text-blue-700 hover:underline dark:text-blue-500"
             >
-              Login
+              Sign in
             </Link>
           </div>
         </form>
