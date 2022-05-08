@@ -24,6 +24,14 @@ const SignIn = () => {
 
   const [signInWithGithub, userOfGit] = useSignInWithGithub(auth);
 
+  //  error
+  useEffect(() => {
+    let errorElement;
+    if (error) {
+      errorElement = <p>Error: {error?.message}</p>;
+      toast.error(errorElement);
+    }
+  });
   // SignIn with EmailPass
   useEffect(() => {
     if (EmailPass) {
@@ -55,14 +63,6 @@ const SignIn = () => {
     event.preventDefault();
     signInWithGithub();
   };
-
-  //  error
-  let errorElement;
-  if (error) {
-    errorElement = <p>Error: {error?.message}</p>;
-    toast.error(errorElement);
-  }
-
   // Loading Screen
   if (loading) {
     if (loading) {
