@@ -2,7 +2,7 @@ import React from "react";
 import useItems from "../../../hooks/useItems";
 import Item from "./Item/Item";
 
-const InventoryItems = () => {
+const ManageItems = () => {
   const [items] = useItems();
   return (
     <div>
@@ -18,4 +18,4 @@ const InventoryItems = () => {
   );
 };
 
-export default InventoryItems;
+export default ManageItems;
