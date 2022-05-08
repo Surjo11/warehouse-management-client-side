@@ -1,6 +1,6 @@
 import React from "react";
 import useItems from "../../../hooks/useItems";
-import Item from "./Item/Item";
+import Item from "./ManageItem/ManageItem";
 
 const ManageItems = () => {
   const [items] = useItems();
