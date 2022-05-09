@@ -5,6 +5,7 @@ import Blogs from "./components/pages/Blogs/Blogs";
 import Home from "./components/pages/Home/Home";
 import ItemDetail from "./components/pages/ItemDetail/ItemDetail";
 import ManageItems from "./components/pages/ManageItems/ManageItems";
+import MyItems from "./components/pages/MyItems/MyItems";
 import NotFound from "./components/pages/NotFound/NotFound";
 import SignIn from "./components/pages/SignIn/SignIn";
 import SignUp from "./components/pages/SignUp/SignUp";
@@ -21,6 +22,7 @@ function App() {
         <Route path="manageitems" element={<ManageItems></ManageItems>} />
         <Route path="item/:itemId" element={<ItemDetail></ItemDetail>} />
         <Route path="additem" element={<AddItem></AddItem>} />
+        <Route path="myitems" element={<MyItems></MyItems>} />
         <Route path="blogs" element={<Blogs></Blogs>} />
         <Route path="signin" element={<SignIn></SignIn>} />
         <Route path="signup" element={<SignUp></SignUp>} />

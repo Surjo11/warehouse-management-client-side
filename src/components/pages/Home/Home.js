@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Banner from "./Banner/Banner";
 import HomeItem from "./HomeItem/HomeItem";
 import ManageButton from "./ManageButton/ManageButton";
+import Partners from "./Partners/Partners";
 
 const Home = () => {
   const [items, setItems] = useState([]);
@@ -13,6 +14,7 @@ const Home = () => {
   return (
     <div>
       <Banner></Banner>
+      <Partners></Partners>
       <h1 className="text-center text-xl font-normal lg:text-5xl dark:text-white mt-10">
         Featured Items
       </h1>
