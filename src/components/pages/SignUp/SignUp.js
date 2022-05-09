@@ -1,14 +1,19 @@
 import React, { useEffect, useRef } from "react";
-import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
+import {
+  useCreateUserWithEmailAndPassword,
+  useUpdateProfile,
+} from "react-firebase-hooks/auth";
 import auth from "../../../firebase.init";
 import { Link, useNavigate } from "react-router-dom";
 
 const SignUp = () => {
+  const nameField = useRef("");
   const emailField = useRef("");
   const passwordField = useRef("");
   const navigate = useNavigate();
   const [createUserWithEmailAndPassword, user] =
     useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+  const [updateProfile] = useUpdateProfile(auth);
 
   useEffect(() => {
     if (user) {
@@ -16,19 +21,38 @@ const SignUp = () => {
     }
   });
 
-  const handelRegister = (event) => {
+  const handelSignUp = async (event) => {
     event.preventDefault();
+    const name = nameField.current.value;
     const email = emailField.current.value;
     const password = passwordField.current.value;
-    createUserWithEmailAndPassword(email, password);
+    await createUserWithEmailAndPassword(email, password);
+    await updateProfile({ displayName: name });
   };
   return (
     <div className="flex justify-center m-10">
       <div className="p-4 w-96 bg-white rounded-lg border border-gray-200 shadow-md sm:p-6 lg:p-8 dark:bg-gray-800 dark:border-gray-700">
-        <form className="space-y-6" action="#" onSubmit={handelRegister}>
+        <form className="space-y-6" action="#" onSubmit={handelSignUp}>
           <h5 className="text-xl font-medium text-center text-gray-900 dark:text-white">
             Sign Up
           </h5>
+          <div>
+            <label
+              htmlFor="text"
+              className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+            >
+              Name
+            </label>
+            <input
+              ref={nameField}
+              type="text"
+              name="name"
+              id="name"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+              placeholder="Enter your Name"
+              required
+            />
+          </div>
           <div>
             <label
               htmlFor="email"

@@ -1,5 +1,6 @@
 import React from "react";
 import useItems from "../../../hooks/useItems";
+import AddItem from "./AddItemButton/AddItemButton";
 import Item from "./ManageItem/ManageItem";
 
 const ManageItems = () => {
@@ -14,6 +15,7 @@ const ManageItems = () => {
           <Item key={item._id} item={item}></Item>
         ))}
       </div>
+      <AddItem></AddItem>
     </div>
   );
 };

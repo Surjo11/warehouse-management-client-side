@@ -9,7 +9,7 @@ const ItemDetail = () => {
       <h1 className="text-center text-xl font-normal lg:text-5xl dark:text-white mt-10">
         Item Details
       </h1>
-      <div className="flex justify-cente mt-10 mb-10">
+      <div className="flex justify-center lg:m-10">
         <div className="flex flex-col items-center w-full p-4 bg-white rounded-lg border shadow-md md:flex-row">
           <img
             className="object-cover w-52 h-full mb-5 rounded-t-lg md:h-auto md:rounded-none md:rounded-l-lg lg:w-52"
