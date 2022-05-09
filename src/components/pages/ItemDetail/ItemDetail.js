@@ -33,6 +33,10 @@ const ItemDetail = () => {
               {item.suppliername}
             </p>
             <p className="dark:text-white">
+              <span className="font-bold">Id: </span>
+              {item._id}
+            </p>
+            <p className="dark:text-white">
               <span className="font-bold">Description: </span>
               {item.description}
             </p>

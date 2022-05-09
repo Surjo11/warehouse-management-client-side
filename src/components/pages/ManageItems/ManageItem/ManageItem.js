@@ -1,12 +1,30 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import useItems from "../../../../hooks/useItems";
 
 const ManageItem = (props) => {
+  const [items, setItems] = useItems();
   const { _id, name, description, image, price, quantity, suppliername } =
     props.item;
   const navigate = useNavigate();
   const navigateToItemDetail = (id) => {
     navigate(`/item/${id}`);
+  };
+
+  const handelDeleteBtn = (itemId) => {
+    const proceed = window.confirm("Are you sure?");
+    if (proceed) {
+      const url = `http://localhost:5000/item/${itemId}`;
+      fetch(url, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          // console.log(data);
+          const remaining = items.filter((item) => item._id !== itemId);
+          setItems(remaining);
+        });
+    }
   };
   return (
     <div className="max-w-sm bg-white rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
@@ -14,7 +32,7 @@ const ManageItem = (props) => {
         {name}
       </h5>
       <div className="flex justify-center">
-        <img className="p-8" src={image} alt="product image" />
+        <img className="p-8" src={image} alt="Item image" />
       </div>
       <div className="px-5 pb-5">
         <p className="dark:text-white">
@@ -29,6 +47,7 @@ const ManageItem = (props) => {
           <span className="font-bold">Supplier: </span>
           {suppliername}
         </p>
+
         <p className="dark:text-white">
           <span className="font-bold">Description: </span>
           {description}
@@ -54,7 +73,10 @@ const ManageItem = (props) => {
               />
             </svg>
           </button>
-          <button class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-red-600 hover:bg-red-500 focus:ring-4 focus:outline-none focus:ring-red-300">
+          <button
+            onClick={() => handelDeleteBtn(_id)}
+            class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-red-600 hover:bg-red-500 focus:ring-4 focus:outline-none focus:ring-red-300"
+          >
             Delete
             <svg
               xmlns="http://www.w3.org/2000/svg"
