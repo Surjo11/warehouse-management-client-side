@@ -1,7 +1,7 @@
 import React from "react";
 import useItems from "../../../hooks/useItems";
 import AddItem from "./AddItemButton/AddItemButton";
-import Item from "./ManageItem/ManageItem";
+import ManageItem from "./ManageItem/ManageItem";
 
 const ManageItems = () => {
   const [items] = useItems();
@@ -12,7 +12,7 @@ const ManageItems = () => {
       </h1>
       <div className="container mx-auto grid grid-cols-1 lg:grid-cols-3 gap-20 mt-10 mr-28">
         {items.map((item) => (
-          <Item key={item._id} item={item}></Item>
+          <ManageItem key={item._id} item={item}></ManageItem>
         ))}
       </div>
       <AddItem></AddItem>
