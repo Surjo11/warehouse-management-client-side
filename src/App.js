@@ -1,5 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
+import AboutUs from "./components/pages/AboutUs/AboutUs";
 import AddItem from "./components/pages/AddItem/AddItem";
 import Blogs from "./components/pages/Blogs/Blogs";
 import Home from "./components/pages/Home/Home";
@@ -24,6 +25,7 @@ function App() {
         <Route path="additem" element={<AddItem></AddItem>} />
         <Route path="myitems" element={<MyItems></MyItems>} />
         <Route path="blogs" element={<Blogs></Blogs>} />
+        <Route path="aboutus" element={<AboutUs></AboutUs>} />
         <Route path="signin" element={<SignIn></SignIn>} />
         <Route path="signup" element={<SignUp></SignUp>} />
         <Route path="*" element={<NotFound></NotFound>} />
