@@ -3,6 +3,7 @@ import Banner from "./Banner/Banner";
 import HomeItem from "./HomeItem/HomeItem";
 import ManageButton from "./ManageButton/ManageButton";
 import Partners from "./Partners/Partners";
+import Question from "./Question/Question";
 
 const Home = () => {
   const [items, setItems] = useState([]);
@@ -24,6 +25,7 @@ const Home = () => {
         ))}
       </div>
       <ManageButton></ManageButton>
+      <Question></Question>
     </div>
   );
 };

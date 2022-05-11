@@ -10,7 +10,7 @@ const AddItemButton = () => {
     <div className="flex justify-center w-full mt-10 mb-10">
       <button
         onClick={() => addItemBtn()}
-        className="lg:flex items-center justify-center w-60 h-16 text-white font-semibold bg-violet-600 hover:bg-violet-500 focus:ring-4 focus:outline-none focus:ring-blue-300  rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        className="flex items-center justify-center w-60 h-16 text-white font-semibold bg-violet-600 hover:bg-violet-500 focus:ring-4 focus:outline-none focus:ring-blue-300  rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
       >
         Add Item
         <svg
