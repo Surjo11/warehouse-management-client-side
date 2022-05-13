@@ -1,18 +1,32 @@
-# Getting Started with Create React App
+# ElSol Warehouse
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Live Site- []()
 
-## Available Scripts
+# Special Note
 
-In the project directory, you can run:
+After React upgrade (Version 17 to Version 18) [Flowbite(Tailwind Components Library)] Some components doesn't work in Chrome Browser. It will be fix in next update of Flowbite. For now Please Download Mozilla Firefox for Pc [https://www.mozilla.org/en-US/firefox/new/](https://www.mozilla.org/en-US/firefox/new/), Mobile [https://play.google.com/store/apps/details?id=org.mozilla.firefox&hl=en&gl=US](https://play.google.com/store/apps/details?id=org.mozilla.firefox&hl=en&gl=US)
+Sorry for your retardation.
 
-### `npm start`
+## Description
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Our team is housed in Bangladesh, USA ,Spain and comprised of talented individuals with experience in various industries. We have developed Dynamic Inventory using technologies such as React, Javascript, and MongoDB. We have experience migrating data from legacy systems to our web-based software. We don’t back down from a challenge, and have yet to come across a problem we couldn’t solve with a little code and a lot of coffee. Our assembly line approach to software development has driven our success.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Project details down below:
+
+- This is Warehouse based Website.
+- Warehouse use for Smartphone.Collecting many kind of phone from different mobile companies.
+- There is a 5 types of different companies where we are collecting our phone (Xiaomi, Realme, Samsung, Google, Oppo).
+- Describes some of details about our Warehouse.
+- Used firebase authentication for the login form.
+- Used JWT(JSON Web Token) to more secure our data.
+- Used React route,firebase authentication,tailwind components,react hot toast and many more.
+
+## List of libraries
+
+1. React (Javascript Library)
+2. Tailwind (Css Library)
+3. Flowbite (Tailwind Components Library)
+4. Firebase-authentication-hooks (Firebase Library)
 
 ### `npm test`
 
@@ -68,4 +82,5 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
 # warehouse-management-client-side-Surjo11
