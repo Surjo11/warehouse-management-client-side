@@ -9,12 +9,12 @@ Sorry for your retardation.
 
 ## Description
 
-Our team is housed in Bangladesh, USA ,Spain and comprised of talented individuals with experience in various industries. We have developed Dynamic Inventory using technologies such as React, Javascript, and MongoDB. We have experience migrating data from legacy systems to our web-based software. We don’t back down from a challenge, and have yet to come across a problem we couldn’t solve with a little code and a lot of coffee. Our assembly line approach to software development has driven our success.
+This is our warehouse where we are trying to collect items with best condition and price. Our team is housed in Bangladesh, USA ,Spain.We are trying to extended our availability all over the world.
 
 ## Project details down below:
 
 - This is Warehouse based Website.
-- Warehouse use for Smartphone.Collecting many kind of phone from different mobile companies.
+- It's use for Smartphone.Collecting many kind of phone from different mobile companies.
 - There is a 5 types of different companies where we are collecting our phone (Xiaomi, Realme, Samsung, Google, Oppo).
 - Describes some of details about our Warehouse.
 - Used firebase authentication for the login form.

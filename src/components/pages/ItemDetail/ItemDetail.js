@@ -1,38 +1,23 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useParams } from "react-router-dom";
 import useItemDetails from "../../../hooks/useItemDetails";
 import { useForm } from "react-hook-form";
+import axios from "axios";
+
 const ItemDetail = () => {
   const { itemId } = useParams();
   const [item] = useItemDetails(itemId);
-  const [newItem, setNewItems] = useState({});
-  useEffect(() => {
-    const url = `http://localhost:5000/item/${itemId}`;
-    fetch(url)
-      .then((res) => res.json())
-      .then((data) => setNewItems(data));
-  }, [setNewItems, itemId]);
   const { register, handleSubmit } = useForm();
   const onSubmit = (value, event) => {
     const newValue = value.quantity;
-    console.log(newValue);
-    const oldQuantity = newItem.quantity;
-    console.log(oldQuantity);
+    // console.log(newValue);
+    const oldQuantity = item.quantity;
+    // console.log(oldQuantity);
     const newQuantity = parseInt(newValue) + parseInt(oldQuantity);
-    console.log(newQuantity);
+    // console.log(newQuantity);
     const url = `http://localhost:5000/item/${itemId}`;
-    fetch(url, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(newQuantity),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        event.target.reset();
-      });
+    axios.put(url, { newQuantity });
+    event.target.reset();
   };
   return (
     <div>

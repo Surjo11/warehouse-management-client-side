@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 const useItemDetails = (itemId) => {
   const [item, setItem] = useState({});
@@ -7,7 +7,7 @@ const useItemDetails = (itemId) => {
     fetch(url)
       .then((res) => res.json())
       .then((data) => setItem(data));
-  }, [itemId]);
+  }, [item]);
   return [item];
 };
 
