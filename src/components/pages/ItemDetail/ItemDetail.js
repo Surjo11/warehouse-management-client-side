@@ -7,16 +7,30 @@ import axios from "axios";
 const ItemDetail = () => {
   const { itemId } = useParams();
   const [item] = useItemDetails(itemId);
+
+  // Decrease Quantity
+  const handelDecrease = () => {
+    const oldQuantity = item.quantity;
+    console.log(oldQuantity);
+    const newQuantity = oldQuantity - 1;
+    console.log(newQuantity);
+    const url = `http://localhost:5000/item/${itemId}`;
+    console.log(url);
+    axios.put(url, { newQuantity });
+  };
+
+  // Increase Quantity
   const { register, handleSubmit } = useForm();
   const onSubmit = (value, event) => {
     const newValue = value.quantity;
-    // console.log(newValue);
+    console.log(newValue);
     const oldQuantity = item.quantity;
-    // console.log(oldQuantity);
+    console.log(oldQuantity);
     const newQuantity = parseInt(newValue) + parseInt(oldQuantity);
-    // console.log(newQuantity);
+    console.log(newQuantity);
     const url = `http://localhost:5000/item/${itemId}`;
     axios.put(url, { newQuantity });
+    // console.log(newQuantity);
     event.target.reset();
   };
   return (
@@ -55,7 +69,10 @@ const ItemDetail = () => {
               <span className="font-bold">Description: </span>
               {item.description}
             </p>
-            <button className=" mb-5 inline-flex items-center py-2 px-3 mt-5 text-sm font-medium text-center text-white bg-green-600  hover:bg-green-500 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+            <button
+              onClick={() => handelDecrease()}
+              className=" mb-5 inline-flex items-center py-2 px-3 mt-5 text-sm font-medium text-center text-white bg-green-600  hover:bg-green-500 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            >
               Delivered
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -77,7 +94,6 @@ const ItemDetail = () => {
               onSubmit={handleSubmit(onSubmit)}
             >
               <input type="number" {...register("quantity")} />
-              {/* <input type="submit" /> */}
               <button
                 type="submit"
                 className="flex items-center justify-center w-20 h-12 text-white font-semibold bg-violet-600 hover:bg-violet-500 focus:ring-4 focus:outline-none focus:ring-blue-300  text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
