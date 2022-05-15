@@ -30,7 +30,7 @@ const AddItem = () => {
           className="mb-2 rounded-lg"
           placeholder="Enter item name"
           type="text"
-          {...register("itemname", { required: true, maxLength: 20 })}
+          {...register("name")}
         />
         <h1 className="font-semibold">Price</h1>
         <input

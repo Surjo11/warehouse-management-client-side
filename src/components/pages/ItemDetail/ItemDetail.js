@@ -69,26 +69,32 @@ const ItemDetail = () => {
               <span className="font-bold">Description: </span>
               {item.description}
             </p>
-            <button
-              onClick={() => handelDecrease()}
-              className=" mb-5 inline-flex items-center py-2 px-3 mt-5 text-sm font-medium text-center text-white bg-green-600  hover:bg-green-500 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-            >
-              Delivered
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                stroke-width="2"
+            {item.quantity === 0 ? (
+              <p className="mt-1 mb-2" style={{ color: "red" }}>
+                Sorry!Stock Out
+              </p>
+            ) : (
+              <button
+                onClick={() => handelDecrease()}
+                className=" mb-5 inline-flex items-center py-2 px-3 mt-5 text-sm font-medium text-center text-white bg-green-600  hover:bg-green-500 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
               >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
-            </button>
+                Delivered
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+              </button>
+            )}
             <form
               className="flex-wrap lg:flex"
               onSubmit={handleSubmit(onSubmit)}

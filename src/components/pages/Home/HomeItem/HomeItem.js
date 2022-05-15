@@ -18,8 +18,7 @@ const HomeItem = (props) => {
       </div>
       <div className="px-5 pb-5">
         <p className="dark:text-white">
-          <span className="font-bold">Price: </span>
-          {price}
+          <span className="font-bold">Price: </span>${price}
         </p>
         <p className="dark:text-white">
           <span className="font-bold">Quantity: </span>
