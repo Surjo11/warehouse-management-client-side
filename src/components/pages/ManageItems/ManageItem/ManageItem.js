@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 import useItems from "../../../../hooks/useItems";
 
 const ManageItem = (props) => {
@@ -12,19 +13,29 @@ const ManageItem = (props) => {
   };
 
   const handelDeleteBtn = (itemId) => {
-    const proceed = window.confirm("Are you sure?");
-    if (proceed) {
-      const url = `http://localhost:5000/item/${itemId}`;
-      fetch(url, {
-        method: "DELETE",
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          // console.log(data);
-          const remaining = items.filter((item) => item._id !== itemId);
-          setItems(remaining);
-        });
-    }
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const url = `http://localhost:5000/item/${itemId}`;
+        fetch(url, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            // console.log(data);
+            const remaining = items.filter((item) => item._id !== itemId);
+            setItems(remaining);
+          });
+        Swal.fire("Deleted!", "Your file has been deleted.", "success");
+      }
+    });
   };
   return (
     <div className="max-w-sm bg-white rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">

@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
+  useAuthState,
   useSignInWithEmailAndPassword,
   useSignInWithGithub,
 } from "react-firebase-hooks/auth";
@@ -17,6 +18,8 @@ const SignIn = () => {
   const location = useLocation();
   let from = location.state?.from?.pathname || "/";
 
+  const [user] = useAuthState(auth);
+
   const [signInWithEmailAndPassword, EmailPass, loading, error] =
     useSignInWithEmailAndPassword(auth);
 
@@ -32,12 +35,13 @@ const SignIn = () => {
       toast.error(errorElement);
     }
   });
+
   // SignIn with EmailPass
-  useEffect(() => {
-    if (EmailPass) {
-      navigate(from, { replace: true });
-    }
-  });
+  // useEffect(() => {
+  //   if (EmailPass) {
+  //     navigate(from, { replace: true });
+  //   }
+  // });
 
   // SignIn with GitHub
   useEffect(() => {
@@ -52,6 +56,24 @@ const SignIn = () => {
     const password = passwordField.current.value;
     signInWithEmailAndPassword(email, password);
   };
+
+  if (user) {
+    const url = "http://localhost:5000/signin";
+    fetch(url, {
+      method: "POST",
+      body: JSON.stringify({
+        email: user.email,
+      }),
+      headers: {
+        "Content-type": "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        localStorage.setItem("accessToken", data.token);
+        navigate(from, { replace: true });
+      });
+  }
 
   const forgotPassword = async () => {
     const email = emailField.current.value;

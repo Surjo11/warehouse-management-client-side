@@ -1,6 +1,7 @@
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
+import Swal from "sweetalert2";
 import auth from "../../../firebase.init";
 const AddItem = () => {
   const { register, handleSubmit } = useForm();
@@ -15,6 +16,13 @@ const AddItem = () => {
     })
       .then((res) => res.json())
       .then(() => {
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Successfully Added",
+          showConfirmButton: false,
+          timer: 2000,
+        });
         event.target.reset();
       });
   };
@@ -30,49 +38,49 @@ const AddItem = () => {
           className="mb-2 rounded-lg"
           placeholder="Enter item name"
           type="text"
-          {...register("name")}
+          {...register("name", { required: true })}
         />
         <h1 className="font-semibold">Price</h1>
         <input
           className="mb-2 rounded-lg"
           placeholder="Enter price"
           type="number"
-          {...register("price")}
+          {...register("price", { required: true })}
         />
         <h1 className="font-semibold">Quantity</h1>
         <input
           className="mb-2 rounded-lg"
           placeholder="Enter quantity"
           type="number"
-          {...register("quantity")}
+          {...register("quantity", { required: true })}
         />
         <h1 className="font-semibold">Image Url</h1>
         <input
           className="mb-2 rounded-lg"
           placeholder="Enter image url"
           type="text"
-          {...register("image")}
+          {...register("image", { required: true })}
         />
         <h1 className="font-semibold">Supplier Name</h1>
         <input
           className="mb-2 rounded-lg"
           type="text"
           value={user?.displayName}
-          {...register("suppliername")}
+          {...register("suppliername", { required: true })}
         />
         <h1 className="font-semibold">Supplier Email</h1>
         <input
           className="mb-2 rounded-lg"
           type="text"
           value={user?.email}
-          {...register("supplieremail")}
+          {...register("supplieremail", { required: true })}
         />
         <h1 className="font-semibold">Description</h1>
         <textarea
           className="mb-2 rounded-lg"
           placeholder="Description"
           type="text"
-          {...register("description")}
+          {...register("description", { required: true })}
         />
         <button
           type="submit"
