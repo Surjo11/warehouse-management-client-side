@@ -6,7 +6,7 @@ import auth from "../../../firebase.init";
 const AddItem = () => {
   const { register, handleSubmit } = useForm();
   const onSubmit = (data, event) => {
-    const url = `http://localhost:5000/items`;
+    const url = `https://secure-atoll-36381.herokuapp.com/items`;
     fetch(url, {
       method: "POST",
       headers: {

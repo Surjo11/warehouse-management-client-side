@@ -14,7 +14,7 @@ const ItemDetail = () => {
     console.log(oldQuantity);
     const newQuantity = oldQuantity - 1;
     console.log(newQuantity);
-    const url = `http://localhost:5000/item/${itemId}`;
+    const url = `https://secure-atoll-36381.herokuapp.com/item/${itemId}`;
     console.log(url);
     axios.put(url, { newQuantity });
   };
@@ -28,7 +28,7 @@ const ItemDetail = () => {
     console.log(oldQuantity);
     const newQuantity = parseInt(newValue) + parseInt(oldQuantity);
     console.log(newQuantity);
-    const url = `http://localhost:5000/item/${itemId}`;
+    const url = `https://secure-atoll-36381.herokuapp.com/item/${itemId}`;
     axios.put(url, { newQuantity });
     // console.log(newQuantity);
     event.target.reset();

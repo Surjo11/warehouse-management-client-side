@@ -36,13 +36,6 @@ const SignIn = () => {
     }
   });
 
-  // SignIn with EmailPass
-  // useEffect(() => {
-  //   if (EmailPass) {
-  //     navigate(from, { replace: true });
-  //   }
-  // });
-
   // SignIn with GitHub
   useEffect(() => {
     if (userOfGit) {
@@ -58,7 +51,7 @@ const SignIn = () => {
   };
 
   if (user) {
-    const url = "http://localhost:5000/signin";
+    const url = "https://secure-atoll-36381.herokuapp.com/signin";
     fetch(url, {
       method: "POST",
       body: JSON.stringify({

@@ -23,7 +23,7 @@ const ManageItem = (props) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        const url = `http://localhost:5000/item/${itemId}`;
+        const url = `https://secure-atoll-36381.herokuapp.com/item/${itemId}`;
         fetch(url, {
           method: "DELETE",
         })
